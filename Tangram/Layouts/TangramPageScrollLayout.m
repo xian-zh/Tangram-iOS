@@ -705,11 +705,13 @@
     if (self.autoScrollTime > 0.0 && self.itemModels.count > 2) {
         if (self.timer) {
             [self.timer fire];
-        }
-        TangramPageScrollLayoutTimerAction *timerAction = [[TangramPageScrollLayoutTimerAction alloc]init];
+        }else{
+            TangramPageScrollLayoutTimerAction *timerAction = [[TangramPageScrollLayoutTimerAction alloc]init];
         timerAction.selector = @selector(jumpToNextPage);
         timerAction.target = self;
         self.timer = [NSTimer scheduledTimerWithTimeInterval:self.autoScrollTime target:timerAction selector:@selector(action) userInfo:nil repeats:YES];
+        }
+        
     }
 }
 
